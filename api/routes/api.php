@@ -38,7 +38,7 @@ Route::prefix('services')->namespace('Api')->group(function () {
     // Ruta para solicitar servicio por un usuario
     Route::post('request-service', [ServiceController::class, 'requestService']);
     // Ruta para cancelar servicio por un usuario
-    Route::post('reject-service', [ServiceController::class, 'rejectService']);
+    Route::put('reject-service/{serviceId}', [ServiceController::class, 'rejectService']);
 });
 
 
@@ -49,5 +49,5 @@ Route::prefix('drivers')->namespace('Api')->group(function () {
     // Ruta para aceptar servicio
     Route::put('accept-service', [DriverController::class, 'acceptService']);
     // Ruta para aceptar servicio
-    Route::put('end-service/{id}', [DriverController::class, 'endService']);
+    Route::put('end-service/{serviceId}', [DriverController::class, 'endService']);
 });

@@ -1,0 +1,264 @@
+{
+	"info": {
+		"_postman_id": "5a672850-3ac2-488e-a193-09839c62de20",
+		"name": "Uber Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21638732",
+		"_collection_link": "https://shootworkspace.postman.co/workspace/Main-Workspace~e03a587f-1284-4c52-8ecb-c75aa23402bd/collection/21638732-5a672850-3ac2-488e-a193-09839c62de20?action=share&source=collection_link&creator=21638732"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Registrarse",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Juan usuario\",\r\n    \"email\": \"juanusuario@example.com\",\r\n    \"password\": \"secretpassword\",\r\n    \"role\": \"user\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uber_api_local}}/api/auth/users/register",
+									"host": [
+										"{{uber_api_local}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"users",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Iniciar Sesion",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"johndoe@example.com\",\r\n    \"password\": \"secretpassword\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uber_api_local}}/api/auth/users/login",
+									"host": [
+										"{{uber_api_local}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjg1YzJkZmFlYmRkNGE3ODk4ZGMyZGRhYjYwNTIxODRhZmU4ODdmZDBmYzFmZjg0Y2FlMWM1Yjk1MTgzMmZhMTFmYmQ0YmE5OTU5NWI3MjYiLCJpYXQiOjE3MTIxNTk2NTIuNDM1ODkzLCJuYmYiOjE3MTIxNTk2NTIuNDM1ODk5LCJleHAiOjE3NDM2OTU2NTIuNDI1NTg3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.dhxPZnBQsY9Xz24yMBx9MtitPT54VvskcmuDtRdnFWvyZoqLgHpid281FYIT1O-G6D57i45Qm2GCBTtbNXZUZT_8E8PsUOmj8YQM_ij-AJVLN03RW-P7WRffxPoAWyc8QsEuafvXw0NkHfVrKYuoGQfBjifblhCtKBQ2ultS7j-xikM7gksPwPkKd8jmdxnzRCDbqKman6HUOd_RU3tnARlvaEs3ct-k8yv3g_4zEbFaPKzaosSLdEe5GCS604O137nqGO8DB24Hycyg-KEdrvyo_ohA1676lCiD2gu7NUjdLxQB0jL-vFhL0AMrp4VoCsMPgioXXBhFUXkJ3XjHXskIrWHlLm_GkHyEGNfXGCXaRdxXIx-l6beNY3GnHm5IhsVuKnUgJJ5TBj0hvUs1CpMEWYxkioPyFJA0okjThR4RFZJPaKqHd6la8WBm4yGnqrBjmlH6fyMe4hIT-ZOSFNt8cSnsSIwu6km0wTAXxTj6LSNTMLLZCldfqPzlrbIOu3IJyWpZil-JJ1ef4axXnRWzYdtTBSaECdjKUUJJWzJzEZdVaxXeooTa51mG_BEpbjnj0hDUnOnM4EBGZ0YKSxdjBjdewaQIQHil-CIxGtDZJgAKgE96D_zOXolFB_5evNd7fjSSGRYFpLNg8gqLX0MgxUc1guWECWs11RhOjnQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{uber_api_local}}/api/auth/users/logout",
+									"host": [
+										"{{uber_api_local}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"users",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Service",
+			"item": [
+				{
+					"name": "Solicitar servicio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjc3M2Y5YTQ5ZTY4MDAyMGNhOWI5NTFiMDlhODAyYWQwMTg0NjZkNTZlMWI3NmEwYWI3Y2RlNGI4MDdjZGEwYmU2NTY1YTZkZTVhMDBkZWIiLCJpYXQiOjE3MTIxNjgxMDIuNDIwNTQ5LCJuYmYiOjE3MTIxNjgxMDIuNDIwNTU1LCJleHAiOjE3NDM3MDQxMDIuNDEyNDg5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.IVt_XQ2F_7pI14J3NHFDUakxkdjqsexKXQZxPJf0vjRYhZraCAiWzuPa1zF8kcowF2LOKE5cdKyEjgQExtLr7aJYseQbMBo4Xd909gTAPzVB6m5_M1TuEvw6Nrc_HDAiq1iNmEkEY3FoizYYAPLaWmAwsy8qTcERLvECd1HZAlOug8hzzA6EFhmeRdv2ujSMa6rvnB4lF-Aw4DwVZYdZINsddzP3Ukwp_zDRnoVsuCHJo2D_InhPapT2eTEk8RLkpuJaFfcgJFMHZlvM1v_jW4ToGnRzgTESmemT4ACBz13HWffRA5H3YzcUbJ0L-O4J7tgaYuU0tcOU10ervAuv9IsIILV_P13Ep6p3EWOfdtKr8MXjf7zEW0HmN4wJseHWVQtli9QnQzPnOWoszOsQf_lL9NVtCVKj7x_K-eLCESsNnY3ULnIUwywZqJV_9aPjWTqSVvJNIU9NWx7bl207jKE-4-DxCovPaMy1-vn2ALsjWLvGWu3QYL11QI64UqrDm9mx6P88raUploT0-hn9wg03nQ2yuLrtzO92noKU2PV11Zf6VFb7d1Ux6IPc61B1XYZrdcfJJRFN9zCXYJZ-PQ_vN_ij4nuxSPYWAQQF9XA51A8FrJTNFY9PYEkzdVaI1oNsOHs5YfCZSyKNcX6T_gp7j18UFmUWEjO00EIhhao",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"latitude_origin\": 40.7128,\r\n    \"longitude_origin\": -74.006,\r\n    \"latitude_destination\": 34.0522,\r\n    \"longitude_destination\": -118.2437\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{uber_api_local}}/api/services/request-service",
+							"host": [
+								"{{uber_api_local}}"
+							],
+							"path": [
+								"api",
+								"services",
+								"request-service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancelar servicio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjc3M2Y5YTQ5ZTY4MDAyMGNhOWI5NTFiMDlhODAyYWQwMTg0NjZkNTZlMWI3NmEwYWI3Y2RlNGI4MDdjZGEwYmU2NTY1YTZkZTVhMDBkZWIiLCJpYXQiOjE3MTIxNjgxMDIuNDIwNTQ5LCJuYmYiOjE3MTIxNjgxMDIuNDIwNTU1LCJleHAiOjE3NDM3MDQxMDIuNDEyNDg5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.IVt_XQ2F_7pI14J3NHFDUakxkdjqsexKXQZxPJf0vjRYhZraCAiWzuPa1zF8kcowF2LOKE5cdKyEjgQExtLr7aJYseQbMBo4Xd909gTAPzVB6m5_M1TuEvw6Nrc_HDAiq1iNmEkEY3FoizYYAPLaWmAwsy8qTcERLvECd1HZAlOug8hzzA6EFhmeRdv2ujSMa6rvnB4lF-Aw4DwVZYdZINsddzP3Ukwp_zDRnoVsuCHJo2D_InhPapT2eTEk8RLkpuJaFfcgJFMHZlvM1v_jW4ToGnRzgTESmemT4ACBz13HWffRA5H3YzcUbJ0L-O4J7tgaYuU0tcOU10ervAuv9IsIILV_P13Ep6p3EWOfdtKr8MXjf7zEW0HmN4wJseHWVQtli9QnQzPnOWoszOsQf_lL9NVtCVKj7x_K-eLCESsNnY3ULnIUwywZqJV_9aPjWTqSVvJNIU9NWx7bl207jKE-4-DxCovPaMy1-vn2ALsjWLvGWu3QYL11QI64UqrDm9mx6P88raUploT0-hn9wg03nQ2yuLrtzO92noKU2PV11Zf6VFb7d1Ux6IPc61B1XYZrdcfJJRFN9zCXYJZ-PQ_vN_ij4nuxSPYWAQQF9XA51A8FrJTNFY9PYEkzdVaI1oNsOHs5YfCZSyKNcX6T_gp7j18UFmUWEjO00EIhhao",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{uber_api_local}}/api/services/reject-service/1",
+							"host": [
+								"{{uber_api_local}}"
+							],
+							"path": [
+								"api",
+								"services",
+								"reject-service",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Drivers",
+			"item": [
+				{
+					"name": "Actualizar coordenadas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMmUzZjY4ZDUzMmU2ZDViMTRkYmJjYWRjYTIxYmQyOGQzZGIyMzgwNDRhMWQ1OTE1YzE0MTM4MWE1MDBkMjQ5ZGRhODU1YmE2ZDRmMGQyZWEiLCJpYXQiOjE3MTIyMzIyOTYuMzk4NDc2LCJuYmYiOjE3MTIyMzIyOTYuMzk4NDkyLCJleHAiOjE3NDM3NjgyOTYuMDIyODU5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.J7KXAOqAj4nJT8ezHbEZGj72P7jW6NBus_-oM-aBK6ejRdru3KhXpPb5vVIy9qwO0KsoQoqfehXCh7R3kEPUEMylE78dO2kOm9m4x7nZP7yfpZ4ofaUXXYOtScJMx93MD5k_uYZM-HJRWMGu_IJBZQP49JrmPi-cv5U5j50vKji-bAG1MiQVxR9pgd8whcg8zUSUPwfjHeI-NQabG5rHy2smbc3K8--jP021JA8D4QD9-nIXJGK6kB_JNQ0QCauR15dfciUhmna5EkyKyQmCUQqOtedMT03jcwFfBC-XRpAIngdNjkdXQd3ptvwnkJ1Jx0u4U7TinTgFSNSPpHjZ6VP9hlykyXyePa2NaNw9WLszmHxZiaNU9lMmoCP58N82UMp2Fih6VvH44G-nave_ZpHKrVFC3j8u_bfnk3Rbsynzd-AESOQnLcft1v-Xd9QX4PJCmhRo_51jTqzQ9XsrjrdCpP74uLt54KG5kGJGFk1DqumuHszjZBfNaIvC53j9cMjUq6NPm79badH5iKj5UgGn6v-6k9T9lGhLTPJMd2CwQhD2x7Np7y8BZxayErlZYPx3xHLXQfpCvjq8Qn7axToRZE7w3sJXYiUCtGbGJxQje9JDYPDOYLr5r_ToKx3pCVUyvDn7V6jeUIPGn3pbCRwcj4Q9kxEvWZSa8qsFg5Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"driver_id\": 1,\r\n    \"latitude\": 40.7128,\r\n    \"longitude\": -74.006\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{uber_api_local}}/api/drivers/update-location-driver",
+							"host": [
+								"{{uber_api_local}}"
+							],
+							"path": [
+								"api",
+								"drivers",
+								"update-location-driver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Terminar Servicio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMmUzZjY4ZDUzMmU2ZDViMTRkYmJjYWRjYTIxYmQyOGQzZGIyMzgwNDRhMWQ1OTE1YzE0MTM4MWE1MDBkMjQ5ZGRhODU1YmE2ZDRmMGQyZWEiLCJpYXQiOjE3MTIyMzIyOTYuMzk4NDc2LCJuYmYiOjE3MTIyMzIyOTYuMzk4NDkyLCJleHAiOjE3NDM3NjgyOTYuMDIyODU5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.J7KXAOqAj4nJT8ezHbEZGj72P7jW6NBus_-oM-aBK6ejRdru3KhXpPb5vVIy9qwO0KsoQoqfehXCh7R3kEPUEMylE78dO2kOm9m4x7nZP7yfpZ4ofaUXXYOtScJMx93MD5k_uYZM-HJRWMGu_IJBZQP49JrmPi-cv5U5j50vKji-bAG1MiQVxR9pgd8whcg8zUSUPwfjHeI-NQabG5rHy2smbc3K8--jP021JA8D4QD9-nIXJGK6kB_JNQ0QCauR15dfciUhmna5EkyKyQmCUQqOtedMT03jcwFfBC-XRpAIngdNjkdXQd3ptvwnkJ1Jx0u4U7TinTgFSNSPpHjZ6VP9hlykyXyePa2NaNw9WLszmHxZiaNU9lMmoCP58N82UMp2Fih6VvH44G-nave_ZpHKrVFC3j8u_bfnk3Rbsynzd-AESOQnLcft1v-Xd9QX4PJCmhRo_51jTqzQ9XsrjrdCpP74uLt54KG5kGJGFk1DqumuHszjZBfNaIvC53j9cMjUq6NPm79badH5iKj5UgGn6v-6k9T9lGhLTPJMd2CwQhD2x7Np7y8BZxayErlZYPx3xHLXQfpCvjq8Qn7axToRZE7w3sJXYiUCtGbGJxQje9JDYPDOYLr5r_ToKx3pCVUyvDn7V6jeUIPGn3pbCRwcj4Q9kxEvWZSa8qsFg5Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{uber_api_local}}/api/drivers/end-service/1",
+							"host": [
+								"{{uber_api_local}}"
+							],
+							"path": [
+								"api",
+								"drivers",
+								"end-service",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

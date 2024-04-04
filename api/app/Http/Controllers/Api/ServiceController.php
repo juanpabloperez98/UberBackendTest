@@ -87,23 +87,11 @@ class ServiceController extends Controller
     }
 
     // Metodo para cancelar servicio
-    public function rejectService(Request $request)
+    public function rejectService(Request $request, $serviceId)
     {
         try {
-            // Validar datos
-            $validator = Validator::make($request->all(), [
-                'service_id' => 'required|numeric'
-            ]);
 
-            if ($validator->fails()) {
-                // Manejar los errores de validación
-                return response()->json([
-                    'success' => false,
-                    'data' => $validator->errors()
-                ], 400);
-            }
-
-            $service = Service::find($request->service_id);
+            $service = Service::find($serviceId);
 
             if(!isset($service)){
                 return response()->json([
